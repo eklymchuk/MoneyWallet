@@ -9,64 +9,101 @@
 import UIKit
 
 class addExpensesViewController: UIViewController {
-
-    var numberFromScreen:Double = 0
-    var firstNum:Double = 0
-    var mathSign:Bool = false
-    var operation:Int = 0
     
-    @IBOutlet weak var result: UILabel!
+    @IBOutlet weak var resultLabel: UILabel!
+    var dotIsPlaced = false
+    var firstNum:Double = 0
+    var secondNum:Double = 0
+    var operationSign: String = ""
+    var stillTyping = false
+    var currentInput: Double {
+        get {
+            return Double(resultLabel.text!)!
+        }
+        set{
+            let value = "\(newValue)"
+            let valueArray = value.components(separatedBy: ".")
+            if valueArray[1] == "0" {
+                resultLabel.text = "\(valueArray[0])"
+            }else{
+                resultLabel.text = "\(newValue)"
+            }
+          
+            stillTyping = false
+        }
+    }
     
     @IBAction func digits(_ sender: UIButton) {
-        if mathSign == true {
-            result.text = String(sender.tag)
-            mathSign = false
-        }else{
-            result.text = result.text! + String(sender.tag)
-            
-        }
-        numberFromScreen = Double(result.text!)!
-    }
-    @IBAction func point(_ sender: Any) {
-        if (sender as AnyObject).tag == 16 { //точка
-            result.text = result.text! + ","
-        }
+        let number = sender.currentTitle!
         
+        if stillTyping {
+            if resultLabel.text!.count < 20 {
+                resultLabel.text = resultLabel.text! + number
+            }
+        }else{
+            resultLabel.text = number
+            stillTyping = true
+        }
+    }
+    
+    @IBAction func point(_ sender: UIButton) { //точка
+        if stillTyping && !dotIsPlaced {
+            resultLabel.text = resultLabel.text! + "."
+            dotIsPlaced = true
+        }else if !stillTyping && !dotIsPlaced {
+            resultLabel.text = "0."
+        }
+    }
+    
+    func operationWithTwoOperands(operation: (Double, Double) -> Double){
+        currentInput = operation(firstNum, secondNum)
+        stillTyping = false
     }
     
     @IBAction func Buttons(_ sender: UIButton) {
-        if result.text != "" && sender.tag != 10 && sender.tag != 15 {
-            firstNum = Double(result.text!)!
-            if sender.tag == 11 { //Деление
-                result.text = "/"
-            }else if sender.tag == 12 { //Умножение
-                result.text = "*"
-            }else if sender.tag == 13 { //Вычитание
-                result.text = "-"
-            }else if sender.tag == 14 { //Добавление
-                result.text = "+"
-            }
-            operation = sender.tag
-            mathSign = true
-            
-        }else if sender.tag == 15 { //Посчитать все
-            if operation == 11 {
-                result.text = String(firstNum / numberFromScreen)
-            }else if operation == 12 {
-                result.text = String(firstNum * numberFromScreen)
-            }else if operation == 13 {
-                result.text = String(firstNum - numberFromScreen)
-            }else if operation == 14 {
-                result.text = String(firstNum + numberFromScreen)
-                
-            }
-        }else if sender.tag == 10 {
-            result.text = ""
-            firstNum = 0
-            numberFromScreen = 0
-            operation = 0
+        operationSign = sender.currentTitle!
+        firstNum = currentInput
+        stillTyping = false
+        dotIsPlaced = false
+    }
+    
+    @IBAction func equolityButton(_ sender: UIButton) {
+       
+        if stillTyping {
+            secondNum = currentInput
+        }
+        dotIsPlaced = false
+        
+        switch operationSign {
+        case "+":
+            operationWithTwoOperands{$0 + $1}
+        case "-":
+            operationWithTwoOperands{$0 - $1}
+        case "✕":
+            operationWithTwoOperands{$0 * $1}
+        case "÷":
+            operationWithTwoOperands{$0 / $1}
+        default: break
         }
     }
+    @IBAction func clearButton(_ sender: UIButton) {
+    
+        firstNum = 0
+        secondNum = 0
+        currentInput = 0
+        dotIsPlaced = false
+        stillTyping = false
+        operationSign = ""
+        resultLabel.text = "0"
+    }
+    @IBAction func percentageButton(_ sender: UIButton) {
+        if firstNum == 0 {
+            currentInput = currentInput / 100
+        }else{
+            secondNum = firstNum * currentInput / 100
+        }
+    }
+    
     
     
     
@@ -77,3 +114,4 @@ class addExpensesViewController: UIViewController {
     }
     
 }
+
