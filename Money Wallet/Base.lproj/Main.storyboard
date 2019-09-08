@@ -418,7 +418,7 @@
                                     <constraint firstAttribute="width" constant="90" id="ZC5-UO-bM6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
-                                <state key="normal">
+                                <state key="normal" title="%">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
@@ -619,7 +619,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="Buttons:" destination="Zpb-BP-xgi" eventType="touchUpInside" id="Cbn-4N-O4J"/>
+                                    <action selector="equolityButton:" destination="Zpb-BP-xgi" eventType="touchUpInside" id="qJ9-mU-MTU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZ3-Wp-k1l">
@@ -679,7 +679,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="Buttons:" destination="Zpb-BP-xgi" eventType="touchUpInside" id="8ZA-O8-ox8"/>
+                                    <action selector="Buttons:" destination="Zpb-BP-xgi" eventType="touchUpInside" id="vGy-jQ-3xb"/>
+                                    <action selector="equolityButton:" destination="Zpb-BP-xgi" eventType="touchUpInside" id="Z62-xw-V9H"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1iT-UY-W1y">
@@ -739,7 +740,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="Buttons:" destination="Zpb-BP-xgi" eventType="touchUpInside" id="Lz2-jm-9lY"/>
+                                    <action selector="Buttons:" destination="Zpb-BP-xgi" eventType="touchUpInside" id="EjK-ka-u28"/>
+                                    <action selector="equolityButton:" destination="Zpb-BP-xgi" eventType="touchUpInside" id="Yt4-ye-jHE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VxV-B9-Bmo">
@@ -797,11 +799,12 @@
                                     <constraint firstAttribute="height" constant="90" id="pyi-Ty-Khj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
-                                <state key="normal" title="x">
+                                <state key="normal" title="✕">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="Buttons:" destination="Zpb-BP-xgi" eventType="touchUpInside" id="mOb-hM-GxR"/>
+                                    <action selector="Buttons:" destination="Zpb-BP-xgi" eventType="touchUpInside" id="ieI-5h-RmJ"/>
+                                    <action selector="equolityButton:" destination="Zpb-BP-xgi" eventType="touchUpInside" id="asY-ib-kdg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zmm-K6-3fI">
@@ -816,7 +819,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="Buttons:" destination="Zpb-BP-xgi" eventType="touchUpInside" id="0nl-ly-bfg"/>
+                                    <action selector="clearButton:" destination="Zpb-BP-xgi" eventType="touchUpInside" id="i86-kz-Pid"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jCQ-vS-dig">
@@ -839,9 +842,12 @@
                                     <constraint firstAttribute="height" constant="90" id="hRQ-fl-bsZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
-                                <state key="normal">
+                                <state key="normal" title="%">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="percentageButton:" destination="Zpb-BP-xgi" eventType="touchUpInside" id="qJ9-dE-UqW"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Hm-ND-T8J">
                                 <rect key="frame" x="298" y="354" width="90" height="90"/>
@@ -851,11 +857,12 @@
                                     <constraint firstAttribute="width" constant="90" id="x6M-DE-348"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
-                                <state key="normal" title="/">
+                                <state key="normal" title="÷">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="Buttons:" destination="Zpb-BP-xgi" eventType="touchUpInside" id="kFC-PF-Zzc"/>
+                                    <action selector="Buttons:" destination="Zpb-BP-xgi" eventType="touchUpInside" id="sFD-aj-6xe"/>
+                                    <action selector="equolityButton:" destination="Zpb-BP-xgi" eventType="touchUpInside" id="1B0-JR-a7a"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1O-rj-V5v">
@@ -873,7 +880,7 @@
                                     <action selector="digits:" destination="Zpb-BP-xgi" eventType="touchUpInside" id="bq8-vO-p8C"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0I-al-0sK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="d0I-al-0sK">
                                 <rect key="frame" x="25" y="216" width="363" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -943,7 +950,7 @@
                         <viewLayoutGuide key="safeArea" id="smI-JN-FeJ"/>
                     </view>
                     <connections>
-                        <outlet property="result" destination="d0I-al-0sK" id="LjB-3t-nRX"/>
+                        <outlet property="resultLabel" destination="d0I-al-0sK" id="jtH-u2-dss"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4D5-Sg-6Xh" userLabel="First Responder" sceneMemberID="firstResponder"/>
