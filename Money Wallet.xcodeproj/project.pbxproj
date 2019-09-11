@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		17140B622323B8AA0076EDAF /* addIncomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17140B612323B8AA0076EDAF /* addIncomingViewController.swift */; };
-		17140B642323C8DB0076EDAF /* addExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17140B632323C8DB0076EDAF /* addExpensesViewController.swift */; };
+		1710097223258D1200569DA8 /* ExpensesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1710097123258D1200569DA8 /* ExpensesViewController.swift */; };
+		17140B642323C8DB0076EDAF /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17140B632323C8DB0076EDAF /* Calculator.swift */; };
 		3E8D9D0B2316C52A00C08294 /* ExpensesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8D9D0A2316C52A00C08294 /* ExpensesTableViewCell.swift */; };
 		3E8D9D0D2316C54900C08294 /* IncomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8D9D0C2316C54900C08294 /* IncomModel.swift */; };
 		3E8D9D0F2316C56200C08294 /* ExpensesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8D9D0E2316C56200C08294 /* ExpensesModel.swift */; };
@@ -23,8 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		17140B612323B8AA0076EDAF /* addIncomingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addIncomingViewController.swift; sourceTree = "<group>"; };
-		17140B632323C8DB0076EDAF /* addExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addExpensesViewController.swift; sourceTree = "<group>"; };
+		1710097123258D1200569DA8 /* ExpensesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewController.swift; sourceTree = "<group>"; };
+		17140B632323C8DB0076EDAF /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
 		3E8D9D0A2316C52A00C08294 /* ExpensesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesTableViewCell.swift; sourceTree = "<group>"; };
 		3E8D9D0C2316C54900C08294 /* IncomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomModel.swift; sourceTree = "<group>"; };
 		3E8D9D0E2316C56200C08294 /* ExpensesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesModel.swift; sourceTree = "<group>"; };
@@ -55,7 +55,6 @@
 			isa = PBXGroup;
 			children = (
 				3E8D9D102316C77000C08294 /* IncomeViewController.swift */,
-				17140B612323B8AA0076EDAF /* addIncomingViewController.swift */,
 				3E8D9D0C2316C54900C08294 /* IncomModel.swift */,
 				3F3FD0E3231EEA2B00CE4A79 /* IncomeTableViewCell.swift */,
 			);
@@ -65,9 +64,9 @@
 		3E8D9D022316C40100C08294 /* Expenses */ = {
 			isa = PBXGroup;
 			children = (
-				3E8D9D0A2316C52A00C08294 /* ExpensesTableViewCell.swift */,
-				17140B632323C8DB0076EDAF /* addExpensesViewController.swift */,
+				1710097123258D1200569DA8 /* ExpensesViewController.swift */,
 				3E8D9D0E2316C56200C08294 /* ExpensesModel.swift */,
+				3E8D9D0A2316C52A00C08294 /* ExpensesTableViewCell.swift */,
 			);
 			path = Expenses;
 			sourceTree = "<group>";
@@ -100,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				3E8E1B5F22FC1072007718FA /* AppDelegate.swift */,
+				17140B632323C8DB0076EDAF /* Calculator.swift */,
 				3E8D9D032316C42000C08294 /* Dashboard */,
 				3E8D9D012316C3D400C08294 /* Income */,
 				3E8D9D022316C40100C08294 /* Expenses */,
@@ -186,9 +186,9 @@
 				3E8D9D0B2316C52A00C08294 /* ExpensesTableViewCell.swift in Sources */,
 				3E8E1B6222FC1072007718FA /* ViewController.swift in Sources */,
 				3F3FD0E4231EEA2B00CE4A79 /* IncomeTableViewCell.swift in Sources */,
+				1710097223258D1200569DA8 /* ExpensesViewController.swift in Sources */,
 				3E8E1B6822FC1072007718FA /* Money_Wallet.xcdatamodeld in Sources */,
-				17140B622323B8AA0076EDAF /* addIncomingViewController.swift in Sources */,
-				17140B642323C8DB0076EDAF /* addExpensesViewController.swift in Sources */,
+				17140B642323C8DB0076EDAF /* Calculator.swift in Sources */,
 				3E8D9D112316C77000C08294 /* IncomeViewController.swift in Sources */,
 				3E8D9D0D2316C54900C08294 /* IncomModel.swift in Sources */,
 				3E8E1B6022FC1072007718FA /* AppDelegate.swift in Sources */,
@@ -347,7 +347,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "home.Money-Wallet";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -365,7 +365,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "home.Money-Wallet";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
