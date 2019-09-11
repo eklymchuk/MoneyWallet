@@ -87,17 +87,17 @@
         <!--incoming-->
         <scene sceneID="sgM-vy-jla">
             <objects>
-                <viewController title="incoming" id="CcX-dY-gdM" sceneMemberID="viewController">
+                <viewController title="incoming" id="CcX-dY-gdM" customClass="IncomeViewController" customModule="Money_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4WD-xo-Y1d">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hcR-lx-CL9" customClass="IncomeViewController" customModule="Money_Wallet" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="hcR-lx-CL9">
                                 <rect key="frame" x="5" y="93" width="404" height="715"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="income" id="RMj-Gd-653" customClass="IncomeTableViewCell" customModule="Money_Wallet" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="404" height="44"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="404" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RMj-Gd-653" id="207-aJ-OEJ">
                                             <rect key="frame" x="0.0" y="0.0" width="404" height="43.5"/>
@@ -119,6 +119,9 @@
                                                     <rect key="frame" x="374" y="0.0" width="30" height="43.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                                     <state key="normal" title="+"/>
+                                                    <connections>
+                                                        <action selector="addIncome:" destination="CcX-dY-gdM" eventType="touchUpInside" id="eRd-rU-GTW"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -135,11 +138,16 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="addButton" destination="gjU-lF-jYp" id="Vkx-wa-Ya7"/>
                                             <outlet property="iconImageView" destination="lBq-Tj-HR1" id="vhp-h6-wkb"/>
                                             <outlet property="nameLabel" destination="0Lw-6l-GNq" id="YI0-qS-GII"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="CcX-dY-gdM" id="rA6-RZ-Mbs"/>
+                                    <outlet property="delegate" destination="CcX-dY-gdM" id="o2c-Og-OEH"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.85468847957248351" green="1" blue="0.94343809306161763" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -155,7 +163,7 @@
                         <barButtonItem key="rightBarButtonItem" title="+" id="Vjd-sc-gPt"/>
                     </navigationItem>
                     <connections>
-                        <segue destination="Zpb-BP-xgi" kind="show" id="S54-rm-ufD"/>
+                        <segue destination="Zpb-BP-xgi" kind="show" identifier="addIncome" id="VP2-6j-4zy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Wa-Wk-pJG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -165,7 +173,6 @@
         <!--Add Incoming View Controller-->
         <scene sceneID="JSJ-HW-Z3F">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="A2d-nV-krT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="4Cp-p7-wIR" customClass="addIncomingViewController" customModule="Money_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="W3Y-F6-Xtn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -525,8 +532,9 @@
                         <outlet property="result" destination="XBv-hy-TyB" id="Ljy-bT-T70"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A2d-nV-krT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2148" y="-565"/>
+            <point key="canvasLocation" x="2809" y="-609"/>
         </scene>
         <!--Expenses-->
         <scene sceneID="NKS-OP-TEh">
@@ -564,29 +572,96 @@
         <!--costs-->
         <scene sceneID="LQA-9t-14z">
             <objects>
-                <viewController title="costs" id="6zu-ko-tmx" sceneMemberID="viewController">
+                <viewController title="costs" id="6zu-ko-tmx" customClass="ExpensesViewController" customModule="Money_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7pi-5G-qni">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iMQ-7M-nuS">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="expenses" id="bcx-2k-7ed" customClass="ExpensesTableViewCell" customModule="Money_Wallet" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bcx-2k-7ed" id="fEg-6G-jI7">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zw4-1d-6zU">
+                                                    <rect key="frame" x="0.0" y="0.0" width="44" height="44.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="44" id="NfW-OA-IEu"/>
+                                                        <constraint firstAttribute="height" constant="44" id="dg8-W1-Net"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FnS-f9-rcR">
+                                                    <rect key="frame" x="370" y="0.0" width="44" height="44.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="44" id="E5H-Ei-0o9"/>
+                                                        <constraint firstAttribute="height" constant="44" id="F5L-oR-PyP"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                    <state key="normal" title="+"/>
+                                                    <connections>
+                                                        <action selector="addExpenses:" destination="6zu-ko-tmx" eventType="touchUpInside" id="Ytl-Nh-ujC"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4PJ-cw-ia2">
+                                                    <rect key="frame" x="44" y="0.0" width="326" height="44.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="FnS-f9-rcR" firstAttribute="leading" secondItem="4PJ-cw-ia2" secondAttribute="trailing" id="1m5-rb-vfJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="Zw4-1d-6zU" secondAttribute="bottom" id="7I5-eW-tqN"/>
+                                                <constraint firstAttribute="bottom" secondItem="FnS-f9-rcR" secondAttribute="bottom" id="FMA-oM-Cs0"/>
+                                                <constraint firstAttribute="trailing" secondItem="FnS-f9-rcR" secondAttribute="trailing" id="GeH-RE-au9"/>
+                                                <constraint firstItem="Zw4-1d-6zU" firstAttribute="top" secondItem="fEg-6G-jI7" secondAttribute="top" id="WJO-bD-3h6"/>
+                                                <constraint firstItem="FnS-f9-rcR" firstAttribute="top" secondItem="fEg-6G-jI7" secondAttribute="top" id="aAK-pX-52K"/>
+                                                <constraint firstItem="Zw4-1d-6zU" firstAttribute="leading" secondItem="fEg-6G-jI7" secondAttribute="leading" id="cTN-EC-nit"/>
+                                                <constraint firstItem="4PJ-cw-ia2" firstAttribute="top" secondItem="fEg-6G-jI7" secondAttribute="top" id="ih9-8n-Xjc"/>
+                                                <constraint firstItem="4PJ-cw-ia2" firstAttribute="leading" secondItem="Zw4-1d-6zU" secondAttribute="trailing" id="qjT-Ss-pui"/>
+                                                <constraint firstAttribute="bottom" secondItem="4PJ-cw-ia2" secondAttribute="bottom" id="toY-mn-uCx"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="addExpButton" destination="FnS-f9-rcR" id="Vte-gN-2Vl"/>
+                                            <outlet property="categoryLabel" destination="4PJ-cw-ia2" id="WmV-WL-NEd"/>
+                                            <outlet property="iconExpenses" destination="Zw4-1d-6zU" id="bVf-iP-Px3"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="6zu-ko-tmx" id="0ly-lf-2Af"/>
+                                    <outlet property="delegate" destination="6zu-ko-tmx" id="4Tq-dT-M9D"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="0.88863220047624891" blue="0.91833918738359066" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="KR3-ho-rlT" firstAttribute="bottom" secondItem="iMQ-7M-nuS" secondAttribute="bottom" id="C3p-oj-5xq"/>
+                            <constraint firstItem="iMQ-7M-nuS" firstAttribute="leading" secondItem="KR3-ho-rlT" secondAttribute="leading" id="dig-Wx-GQn"/>
+                            <constraint firstItem="KR3-ho-rlT" firstAttribute="trailing" secondItem="iMQ-7M-nuS" secondAttribute="trailing" id="elg-XV-hDB"/>
+                            <constraint firstItem="iMQ-7M-nuS" firstAttribute="top" secondItem="KR3-ho-rlT" secondAttribute="top" id="sZt-gk-nzS"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="KR3-ho-rlT"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Nqm-Q7-JfY">
-                        <barButtonItem key="rightBarButtonItem" title="+" id="Zs8-dn-1VJ">
-                            <connections>
-                                <segue destination="Zpb-BP-xgi" kind="show" id="8Ul-vT-xu2"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Nqm-Q7-JfY"/>
+                    <connections>
+                        <segue destination="Zpb-BP-xgi" kind="show" identifier="addExpensesSeag" id="0bn-uQ-ZU5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ION-uX-rOE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="661" y="138"/>
+            <point key="canvasLocation" x="660.86956521739137" y="137.94642857142856"/>
         </scene>
-        <!--Add Expenses View Controller-->
+        <!--Calculator-->
         <scene sceneID="0Xs-iV-HeR">
             <objects>
-                <viewController id="Zpb-BP-xgi" customClass="addExpensesViewController" customModule="Money_Wallet" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Zpb-BP-xgi" customClass="Calculator" customModule="Money_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1pt-nX-f1M">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -949,6 +1024,7 @@
                         <viewLayoutGuide key="safeArea" id="smI-JN-FeJ"/>
                     </view>
                     <connections>
+                        <outlet property="categoryLabel" destination="oY2-P9-nnm" id="bWr-6e-rV8"/>
                         <outlet property="resultLabel" destination="d0I-al-0sK" id="jtH-u2-dss"/>
                     </connections>
                 </viewController>
@@ -958,6 +1034,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="S54-rm-ufD"/>
+        <segue reference="0bn-uQ-ZU5"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,7 +9,16 @@
 import UIKit
 
 class ExpensesTableViewCell: UITableViewCell {
+   
+    @IBOutlet weak var iconExpenses: UIImageView!
+    
+    @IBOutlet weak var categoryLabel: UILabel!
+    
+    @IBOutlet weak var addExpButton: UIButton!
+        
+        
 
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

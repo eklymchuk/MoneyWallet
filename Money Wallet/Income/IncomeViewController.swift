@@ -1,5 +1,5 @@
 //
-//  IncomeCollectionViewCell.swift
+//  IncomeViewController.swift
 //  Money Wallet
 //
 //  Created by arh on 8/28/19.
@@ -8,16 +8,36 @@
 
 import UIKit
 
-class IncomeViewController: UITableViewController {
+class IncomeViewController: UIViewController {
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+    var model = IncomModel()
+    
+    @IBAction func addIncome(_ sender: UIButton) {
+        let category = model.incomeArray[sender.tag]
+        performSegue(withIdentifier: "addIncome", sender: category)
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addIncome",
+            let vc = segue.destination as? Calculator {
+            vc.category = sender as! String
+        }
+    }
+    
+
+}
+extension IncomeViewController: UITableViewDataSource, UITableViewDelegate {
+   
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return model.incomeArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "income") as! IncomeTableViewCell
         
-        cell.nameLabel.text = "sdfsdfsd"
+        cell.nameLabel.text = "\(model.incomeArray[indexPath.row].name)"
+        cell.imageView?.image = UIImage(named: model.incomeArray[indexPath.row].image)
+        cell.addButton.tag = indexPath.row
         
         return cell
     }
