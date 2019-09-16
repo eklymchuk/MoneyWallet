@@ -9,6 +9,25 @@
 import UIKit
 import CoreData
 
+var incomeArray = [
+    Category(name: "Salary", image: "money"),
+    Category(name: "Bonus", image: "money"),
+    Category(name: "Economy", image: "money")
+]
+
+var expensesArray = [
+    Category(name: "Food", image: "money"),
+    Category(name: "Home", image: "money"),
+    Category(name: "Cafe", image: "money"),
+    Category(name: "Car", image: "money"),
+    Category(name: "Transport", image: "money"),
+    Category(name: "Party", image: "money"),
+    Category(name: "Health", image: "money"),
+    Category(name: "Communication", image: "money"),
+    Category(name: "Clothing", image: "money"),
+    Category(name: "Other", image: "money")
+]
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

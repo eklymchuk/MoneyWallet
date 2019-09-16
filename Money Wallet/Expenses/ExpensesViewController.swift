@@ -13,14 +13,14 @@ class ExpensesViewController: UIViewController {
 
    
     @IBAction func addExpenses(_ sender: UIButton) {
-        let category = model.expensesArray[sender.tag]
+        let category = expensesArray[sender.tag]
         performSegue(withIdentifier: "addExpensesSeag", sender: category)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addExpensesSeag",
             let vc = segue.destination as? Calculator {
-            vc.category = sender as! String
+            vc.category = sender as? Category
         }
         
     }
@@ -31,14 +31,14 @@ extension ExpensesViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return model.expensesArray.count
+        return expensesArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "expenses") as! ExpensesTableViewCell
         
-        cell.categoryLabel.text = "\(model.expensesArray[indexPath.row].name)"
-        cell.imageView?.image = UIImage(named: model.expensesArray[indexPath.row].image)
+        cell.categoryLabel.text = "\(expensesArray[indexPath.row].name)"
+        cell.imageView?.image = UIImage(named: expensesArray[indexPath.row].image)
 //        cell.addButton.tag = indexPath.row
         return cell
     }

@@ -14,26 +14,4 @@ class ExpensesModel {
     var expensesEconomy: Double = 0
 
 //    var expensesArray = ["Food","Home","Cafe","Car","Transport","Party","Health","Communication","Clothing","Other"]
-    var expensesArray = [
-        Expenses(name: "Food", image: "money"),
-        Expenses(name: "Home", image: "money"),
-        Expenses(name: "Cafe", image: "money"),
-        Expenses(name: "Car", image: "money"),
-        Expenses(name: "Transport", image: "money"),
-        Expenses(name: "Party", image: "money"),
-        Expenses(name: "Health", image: "money"),
-        Expenses(name: "Communication", image: "money"),
-        Expenses(name: "Clothing", image: "money"),
-        Expenses(name: "Other", image: "money")
-    ]
-}
-
-class Expenses {
-    var name: String
-    var image: String
-    
-    init(name: String, image:String) {
-        self.name = name
-        self.image = image
-    }
 }

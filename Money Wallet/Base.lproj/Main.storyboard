@@ -33,39 +33,94 @@
         <!--Dashboard-->
         <scene sceneID="6kz-r8-3Ef">
             <objects>
-                <viewController id="W5V-p8-eiV" sceneMemberID="viewController">
+                <viewController id="W5V-p8-eiV" customClass="DashboardViewController" customModule="Money_Wallet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yff-ol-OyZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EJ4-bc-qPj">
-                                <rect key="frame" x="10" y="444" width="394" height="359"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rvl-VM-Bi5">
+                                <rect key="frame" x="5" y="314" width="404" height="494"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zVJ-Dv-qna">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                            </collectionView>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dashboard" id="Tm7-kt-YiS" customClass="DashboardTableViewCell" customModule="Money_Wallet" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="404" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Tm7-kt-YiS" id="8YJ-ed-yUD">
+                                            <rect key="frame" x="0.0" y="0.0" width="404" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wbF-aB-1yK">
+                                                    <rect key="frame" x="0.0" y="0.0" width="44" height="44.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="TsK-Th-kRv"/>
+                                                        <constraint firstAttribute="width" constant="44" id="w3w-xI-m41"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eGo-B7-FZn">
+                                                    <rect key="frame" x="320" y="0.0" width="84" height="44.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="FQz-1f-Xqr"/>
+                                                        <constraint firstAttribute="width" constant="84" id="VAN-Er-FWn"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cz-IW-Yha">
+                                                    <rect key="frame" x="44" y="0.0" width="276" height="44.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="1cz-IW-Yha" firstAttribute="leading" secondItem="wbF-aB-1yK" secondAttribute="trailing" id="3g8-gh-b8V"/>
+                                                <constraint firstAttribute="trailing" secondItem="eGo-B7-FZn" secondAttribute="trailing" id="4u3-ue-wtc"/>
+                                                <constraint firstItem="wbF-aB-1yK" firstAttribute="leading" secondItem="8YJ-ed-yUD" secondAttribute="leading" id="Hxj-7t-OZw"/>
+                                                <constraint firstAttribute="bottom" secondItem="1cz-IW-Yha" secondAttribute="bottom" id="Nxc-Cc-gOk"/>
+                                                <constraint firstAttribute="bottom" secondItem="eGo-B7-FZn" secondAttribute="bottom" id="OXO-no-7Ei"/>
+                                                <constraint firstAttribute="bottom" secondItem="wbF-aB-1yK" secondAttribute="bottom" id="Q74-JK-gbn"/>
+                                                <constraint firstAttribute="bottom" secondItem="1cz-IW-Yha" secondAttribute="bottom" id="V32-he-LJf"/>
+                                                <constraint firstItem="1cz-IW-Yha" firstAttribute="top" secondItem="8YJ-ed-yUD" secondAttribute="top" id="aj9-GH-Dua"/>
+                                                <constraint firstItem="1cz-IW-Yha" firstAttribute="top" secondItem="8YJ-ed-yUD" secondAttribute="top" id="dOy-tX-2DM"/>
+                                                <constraint firstItem="eGo-B7-FZn" firstAttribute="leading" secondItem="1cz-IW-Yha" secondAttribute="trailing" id="gox-HM-2V7"/>
+                                                <constraint firstItem="wbF-aB-1yK" firstAttribute="top" secondItem="8YJ-ed-yUD" secondAttribute="top" id="oxt-jf-Krw"/>
+                                                <constraint firstItem="1cz-IW-Yha" firstAttribute="leading" secondItem="wbF-aB-1yK" secondAttribute="trailing" id="wf2-rc-l34"/>
+                                                <constraint firstItem="eGo-B7-FZn" firstAttribute="top" secondItem="8YJ-ed-yUD" secondAttribute="top" id="yas-sg-hag"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="categoryDashboardLabel" destination="1cz-IW-Yha" id="XFV-f4-jYO"/>
+                                            <outlet property="iconImage" destination="wbF-aB-1yK" id="qLT-h6-B8a"/>
+                                            <outlet property="movedMoney" destination="eGo-B7-FZn" id="pgH-49-5ZN"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="W5V-p8-eiV" id="cQO-Wh-r6I"/>
+                                    <outlet property="delegate" destination="W5V-p8-eiV" id="QYE-UR-F11"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.85664264899999998" green="0.53790708320000002" blue="0.058774766399999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="I99-ip-snv" firstAttribute="bottom" secondItem="EJ4-bc-qPj" secondAttribute="bottom" constant="10" id="FuQ-vY-Cmv"/>
-                            <constraint firstItem="EJ4-bc-qPj" firstAttribute="top" secondItem="I99-ip-snv" secondAttribute="top" constant="400" id="QJZ-hM-Ok5"/>
-                            <constraint firstItem="EJ4-bc-qPj" firstAttribute="leading" secondItem="I99-ip-snv" secondAttribute="leading" constant="10" id="yc2-yr-Qbf"/>
-                            <constraint firstItem="I99-ip-snv" firstAttribute="trailing" secondItem="EJ4-bc-qPj" secondAttribute="trailing" constant="10" id="zDC-ip-9MV"/>
+                            <constraint firstItem="rvl-VM-Bi5" firstAttribute="top" secondItem="I99-ip-snv" secondAttribute="top" constant="270" id="DPR-CV-8D6"/>
+                            <constraint firstItem="I99-ip-snv" firstAttribute="bottom" secondItem="rvl-VM-Bi5" secondAttribute="bottom" constant="5" id="QkV-wI-RN9"/>
+                            <constraint firstItem="rvl-VM-Bi5" firstAttribute="leading" secondItem="I99-ip-snv" secondAttribute="leading" constant="5" id="RQt-ah-OKc"/>
+                            <constraint firstItem="I99-ip-snv" firstAttribute="trailing" secondItem="rvl-VM-Bi5" secondAttribute="trailing" constant="5" id="ZHX-SW-7x3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="I99-ip-snv"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Dashboard" id="xsB-wh-n6t">
                         <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="tableView" destination="rvl-VM-Bi5" id="NWE-ef-sne"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="66g-FB-d4m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1059" y="842"/>
+            <point key="canvasLocation" x="-1059.4202898550725" y="841.74107142857144"/>
         </scene>
         <!--Income-->
         <scene sceneID="SvB-jZ-A2e">
@@ -96,7 +151,7 @@
                                 <rect key="frame" x="5" y="93" width="404" height="715"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="income" id="RMj-Gd-653" customClass="IncomeTableViewCell" customModule="Money_Wallet" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="income" id="RMj-Gd-653" customClass="IncomeTableViewCell" customModule="Money_Wallet" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="404" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RMj-Gd-653" id="207-aJ-OEJ">
@@ -581,7 +636,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="expenses" id="bcx-2k-7ed" customClass="ExpensesTableViewCell" customModule="Money_Wallet" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="expenses" id="bcx-2k-7ed" customClass="ExpensesTableViewCell" customModule="Money_Wallet" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bcx-2k-7ed" id="fEg-6G-jI7">
@@ -971,6 +1026,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zyg-Jm-lP4">
+                                <rect key="frame" x="312" y="177" width="76" height="38"/>
+                                <color key="backgroundColor" red="0.51334698590000005" green="0.77296989920000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="76" id="g2V-Fs-a83"/>
+                                </constraints>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="doneButton:" destination="Zpb-BP-xgi" eventType="touchUpInside" id="b7I-xp-h1q"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.51174063039999995" green="0.53313756599999995" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -980,6 +1046,7 @@
                             <constraint firstItem="oY2-P9-nnm" firstAttribute="leading" secondItem="smI-JN-FeJ" secondAttribute="leading" constant="25" id="7GK-jE-Vii"/>
                             <constraint firstItem="zmm-K6-3fI" firstAttribute="leading" secondItem="smI-JN-FeJ" secondAttribute="leading" constant="25" id="8Fu-jZ-Uj6"/>
                             <constraint firstItem="1iT-UY-W1y" firstAttribute="top" secondItem="VxV-B9-Bmo" secondAttribute="bottom" constant="1" id="9D9-QA-hBw"/>
+                            <constraint firstItem="smI-JN-FeJ" firstAttribute="trailing" secondItem="zyg-Jm-lP4" secondAttribute="trailing" constant="26" id="Aje-1m-kaH"/>
                             <constraint firstItem="7mf-Rk-E99" firstAttribute="leading" secondItem="BZ3-Wp-k1l" secondAttribute="trailing" constant="1" id="BPA-TO-QZm"/>
                             <constraint firstItem="oY2-P9-nnm" firstAttribute="top" secondItem="smI-JN-FeJ" secondAttribute="top" constant="40" id="Bmv-Vo-x26"/>
                             <constraint firstItem="3W7-1U-JdG" firstAttribute="top" secondItem="tWq-Ow-Uw1" secondAttribute="bottom" constant="1" id="Cfi-Ci-4L3"/>
@@ -992,6 +1059,7 @@
                             <constraint firstItem="Iyl-Y5-ziq" firstAttribute="leading" secondItem="qeh-4d-Fjz" secondAttribute="trailing" constant="1" id="IWy-Im-TUL"/>
                             <constraint firstItem="d0I-al-0sK" firstAttribute="top" secondItem="oY2-P9-nnm" secondAttribute="bottom" constant="40" id="IYy-rl-bEs"/>
                             <constraint firstItem="KYg-88-LYB" firstAttribute="top" secondItem="4Hm-ND-T8J" secondAttribute="bottom" constant="1" id="IfS-fO-xqB"/>
+                            <constraint firstItem="d0I-al-0sK" firstAttribute="top" secondItem="zyg-Jm-lP4" secondAttribute="bottom" constant="1" id="Jfr-ub-AHS"/>
                             <constraint firstItem="smI-JN-FeJ" firstAttribute="bottom" secondItem="g1O-rj-V5v" secondAttribute="bottom" constant="5" id="OfY-kW-lhD"/>
                             <constraint firstItem="smI-JN-FeJ" firstAttribute="trailing" secondItem="oY2-P9-nnm" secondAttribute="trailing" constant="26" id="PZn-WN-2DM"/>
                             <constraint firstItem="g1O-rj-V5v" firstAttribute="top" secondItem="BZ3-Wp-k1l" secondAttribute="bottom" constant="1" id="Q8o-JQ-RJ1"/>
@@ -1019,6 +1087,7 @@
                             <constraint firstItem="Iyl-Y5-ziq" firstAttribute="top" secondItem="Vk1-Xz-TD0" secondAttribute="bottom" constant="1" id="rlZ-lQ-ePM"/>
                             <constraint firstItem="1iT-UY-W1y" firstAttribute="leading" secondItem="smI-JN-FeJ" secondAttribute="leading" constant="25" id="ttn-4x-nL1"/>
                             <constraint firstItem="syh-RV-u5i" firstAttribute="top" secondItem="xtu-BD-H4r" secondAttribute="bottom" constant="1" id="uRG-Ne-WsH"/>
+                            <constraint firstItem="zyg-Jm-lP4" firstAttribute="top" secondItem="oY2-P9-nnm" secondAttribute="bottom" constant="1" id="zKi-3W-RRa"/>
                             <constraint firstItem="Vk1-Xz-TD0" firstAttribute="top" secondItem="I5m-gs-Zjj" secondAttribute="bottom" constant="1" id="zuY-T1-XVI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="smI-JN-FeJ"/>

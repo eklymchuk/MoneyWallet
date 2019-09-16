@@ -13,7 +13,7 @@ class Calculator: UIViewController {
     
     
     @IBOutlet weak var categoryLabel: UILabel!
-        var category:String = ""
+    var category:Category?
     
     //лейбел калькулятора
     @IBOutlet weak var resultLabel: UILabel!
@@ -112,13 +112,21 @@ class Calculator: UIViewController {
         }
     }
     
+    @IBAction func doneButton(_ sender: UIButton) {
+        if let result = Double(resultLabel.text ?? "") {
+            category?.historyArray.append(Money(value: result))
+            self.dismiss(animated: false) {
+                self.tabBarController?.selectedIndex = 0
+            }
+        }
+    }
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.categoryLabel.text = category
+        self.categoryLabel.text = category?.name
     }
     
 }

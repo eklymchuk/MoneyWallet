@@ -12,15 +12,19 @@ class IncomeViewController: UIViewController {
     
     var model = IncomModel()
     
+    override func viewDidLoad() {
+//        incomeArray[0].historyArray.append(Money(value: -100.25))
+    }
+    
     @IBAction func addIncome(_ sender: UIButton) {
-        let category = model.incomeArray[sender.tag]
+        let category = incomeArray[sender.tag]
         performSegue(withIdentifier: "addIncome", sender: category)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addIncome",
             let vc = segue.destination as? Calculator {
-            vc.category = sender as! String
+            vc.category = sender as? Category
         }
     }
     
@@ -29,14 +33,14 @@ class IncomeViewController: UIViewController {
 extension IncomeViewController: UITableViewDataSource, UITableViewDelegate {
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return model.incomeArray.count
+        return incomeArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "income") as! IncomeTableViewCell
         
-        cell.nameLabel.text = "\(model.incomeArray[indexPath.row].name)"
-        cell.imageView?.image = UIImage(named: model.incomeArray[indexPath.row].image)
+        cell.nameLabel.text = "\(incomeArray[indexPath.row].name)"
+        cell.imageView?.image = UIImage(named: incomeArray[indexPath.row].image)
         cell.addButton.tag = indexPath.row
         
         return cell
